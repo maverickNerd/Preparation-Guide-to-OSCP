@@ -1,3 +1,9 @@
+
+I am writing this guide to cover all OSCP topics as well as other infosec knowledge in details, I will also provide a cheat-sheet in each section so that you can use the commands directly once you understand the topics/tools.
+
+Always, remember information security is a journey, there is never ending things to learn, so only thing that you need to conquer this journey is patience and curiosity.
+
+
 When I started OSCP, I didn't even know about nmap, so it is not that before attempting OSCP you have to learn something.
 
 Only prerequisite is:
@@ -20,7 +26,3 @@ Then comes the last phase called "Reporting" phase, in this, the pentester summa
 
 I am covering all these phases including some other resource that will help you in OSCP as well as pentesting journey.
 
-I am writing this guide to cover all topics in details, I will also provide a cheat-sheet in each section so that you can use the commands directly once you understand the topics/tools.
-
-
-Always, remember information security aka infosec is a journey, there is never ending things to learn, so only thing that you need to conquer this journey is patience and curiosity.

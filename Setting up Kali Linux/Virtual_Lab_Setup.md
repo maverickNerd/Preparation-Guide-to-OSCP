@@ -31,3 +31,8 @@ on the network with its own IP address.
 the virtual machine will appear to come from the host machine’s IP
 address.
 - Host-only network: It limits the virtual machine to a local private network on the host. The virtual machine will be able to communicate with other virtual machines in the host-only network as well as the host machine itself, but it will not be able to send or receive any traffic with the local network or the Internet.
+
+Chose Bridge Network Connection:
+'''
+Go to player-> Machine -> Virtual Machine Settings -> Bridged option.
+'''

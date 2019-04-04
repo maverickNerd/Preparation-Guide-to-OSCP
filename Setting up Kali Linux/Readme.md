@@ -1,3 +1,5 @@
+# Cheatsheet
+
 - Download and install Vmware
   https://www.vmware.com/products/workstation-player.html
 
@@ -14,5 +16,5 @@
 - Once it boots, type Username: root and Passwords: toor
 
   Chose Bridge Network Connection:
-  
+
 - Go to player-> Machine -> Virtual Machine Settings -> Bridged option.

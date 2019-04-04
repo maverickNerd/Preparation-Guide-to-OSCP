@@ -25,14 +25,9 @@ Once it boots, type Username: root and Passwords: toor
 There might be chances that you need to change the network adapter settings.
 
 VMware offers 3 options for virtual network connections: bridged, NAT, and host only. You should choose the bridged option, but below is the info on each:
-Bridged network: It connects the virtual machine directly to the local
-network using the same connection as the host system. As far as the
-local network is concerned, our virtual machine is just another node
+- Bridged network: It connects the virtual machine directly to the local network using the same connection as the host system. As far as the local network is concerned, our virtual machine is just another node
 on the network with its own IP address.
-NAT(Network Address Translation): It sets up a private network on the
-host machine. The private network translates outgoing traffic from the
-virtual machine to the local network. On the local network, traffic from
+- NAT(Network Address Translation): It sets up a private network on the host machine. The private network translates outgoing traffic from the virtual machine to the local network. On the local network, traffic from
 the virtual machine will appear to come from the host machine’s IP
 address.
-Host-only network: It limits the virtual machine to a local private network on the host. The virtual machine will be able to communicate
-with other virtual machines in the host-only network as well as the host machine itself, but it will not be able to send or receive any traffic with the local network or the Internet.
+- Host-only network: It limits the virtual machine to a local private network on the host. The virtual machine will be able to communicate with other virtual machines in the host-only network as well as the host machine itself, but it will not be able to send or receive any traffic with the local network or the Internet.

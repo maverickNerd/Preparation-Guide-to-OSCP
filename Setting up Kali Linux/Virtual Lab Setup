@@ -18,8 +18,6 @@ Unzip above file using 7z software, you can download 7z from here, if you don't 
 
 Go to the extracted folder and open file having type as Vmware virtual machine configuration(Kali-Linux-2019.1-vm-amd64). Once it get opened it will show prompt like below:
 
-https://user-images.githubusercontent.com/49231687/55545039-048a0180-56ea-11e9-951a-2ff29852f233.png
-
 Click on "I Copied It".
 
 Once it boots, type Username: root and Passwords: toor

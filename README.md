@@ -1,3 +1,4 @@
+# Guide to OSCP
 
 I am writing this guide to cover all OSCP topics as well as other infosec knowledge in details, I will also provide a cheat-sheet in each section so that you can use the commands directly once you understand the topics/tools.
 
@@ -7,9 +8,9 @@ Always, remember information security is a journey, there is never ending things
 When I started OSCP, I didn't even know about nmap, so it is not that before attempting OSCP you have to learn something.
 
 Only prerequisite is:
-1. Basic understanding of OS, and TCP/IP protocol
-2. Also, it would be great if you are familiar with basic commands in linux and windows.
-3. Able to read and understand code written in C, python and bash
+- Basic understanding of OS, and TCP/IP protocol
+- Also, it would be great if you are familiar with basic commands in linux and windows.
+- Able to read and understand code written in C, python and bash
 
 First phase of pentesting is the "Information Gathering" phase, in this the pentester searches for publicly available information about the client and identifies potential ways to connect to its systems. After this, the tester uses this information to determine the value of each finding and the impact to the client if
 the finding permitted an attacker to break into a system.
@@ -26,3 +27,5 @@ Then comes the last phase called "Reporting" phase, in this, the pentester summa
 
 I am covering all these phases including some other resource that will help you in OSCP as well as pentesting journey.
 
+## Content
+- [Setting Up Kali Linux](https://github.com/blackinfo/Preparation-Guide-to-OSCP/tree/master/Setting%20up%20Kali%20Linux)

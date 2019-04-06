@@ -36,3 +36,14 @@ Chose Bridge Network Connection:
 '''
 Go to player-> Machine -> Virtual Machine Settings -> Bridged option.
 '''
+
+if you want to learn kali linux:
+
+you can skip wireless part from this video:
+https://www.youtube.com/watch?v=0uvWRwLs5Zo
+kali linux book: https://kali.training/downloads/Kali-Linux-Revealed-1st-edition.pdf
+
+To learn Linux : https://linuxjourney.com/
+
+If you want to understand any command, you can put the command in below website to get help about it:
+https://www.explainshell.com/

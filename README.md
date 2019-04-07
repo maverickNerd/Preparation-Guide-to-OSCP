@@ -4,9 +4,9 @@ I am writing this guide to cover all OSCP topics as well as other infosec knowle
 
 Similarly if you want to become system/platform(OS) pentester, you should know how to setup the OS, how to do system configuration, and what people can miss when they do configuration. This can guide you to think in the direction of finding vulnerability.
 
-If you want to go to network pentesting, you should know TC/IP layer, OSI layer, how to setup network interface and basic knowledge of how internet and firewall works.
+If you want to go into network pentesting, you should know TC/IP layer, OSI layer, network configuration and basic knowledge of how internet and firewall works.
 
-Always, remember information security is a journey, there is never ending things to learn, so only thing that you need to conquer this journey is patience and curiosity.
+Always remember, information security is a journey, there are emough amount of things to learn and they keep increasing as the technology changes, so only thing that you need to conquer this journey is patience and curiosity.
 
 
 When I started OSCP, I didn't even know about nmap, so it is not that before attempting OSCP you have to learn something.

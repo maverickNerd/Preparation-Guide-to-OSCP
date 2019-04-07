@@ -45,3 +45,37 @@ Bank account details and lots more
 if you want to list all the website that have exact phrase. search for a string like "access denied for user".
 
 Cheatsheet: https://www.sans.org/security-resources/GoogleCheatSheet.pdf
+
+## Email Harvesting
+
+- Email harvesting can be done to find emails containing the organization name.
+
+- This can be use for social engineering attacks, by sending spams/malware links to the email ID and penetrating the network using this technique or affecting the internal network.
+
+- Emails of employees from the corporate company also helps in making the username list as most of the time username is part of email id,
+
+#### theharvester
+
+This tool can help in finding the emails belonging to an organization.
+
+root@kali:/home/greysec/scripts# theharvester -d cisco.com -b linkedin
+
+## Netcraft
+
+Netcraft can be used to indirectly find out information about web servers on the Internet, including the underlying operating system, web server version, and uptime.
+
+## Whois Enumeration
+
+Whois is a name for a TCP service, a tool, and a type of database. Whois databases contain name server, registrar, and, in some cases, full contact information about a domain name. Each registrar must maintain a Whois database containing all contact information for the domains they host.
+
+root@kali:/home/greysec/scripts# whois flipkart.com
+   Domain Name: FLIPKART.COM
+   Registry Domain ID: 1009529768_DOMAIN_COM-VRSN
+   Registrar WHOIS Server: whois.godaddy.com
+   Registrar URL: http://www.godaddy.com
+   Updated Date: 2016-06-02T16:11:34Z
+   Creation Date: 2007-06-03T19:32:20Z
+   Registry Expiry Date: 2022-06-03T19:32:20Z
+   Registrar: GoDaddy.com, LLC
+
+- You can see from the above output that flipkart domain is registered on godaddy.com and its creation and expiry date. Sometimes we can get the contact number and email id of internal organization also which can help in social engineering attack.

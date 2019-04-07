@@ -2,7 +2,7 @@
 
 I am writing this guide to cover all OSCP topics as well as other infosec knowledge in details, I will also provide a cheat-sheet in each section so that you can use the commands directly once you understand the topics/tools. But I think to become a good pentester you should know how things work. Pentesting is a very wide field, like if you are interested in webapp pentesting then you should know how application interacts with databases, basics of databses, webapp languages.
 
-Similar if you want to become system/platform(OS) pentester, you should know how to setup the OS, how to do configuration of system, and what people can miss when they do configuration. This can guide you to think in that direction for finding vulnerability.
+Similarly if you want to become system/platform(OS) pentester, you should know how to setup the OS, how to do system configuration, and what people can miss when they do configuration. This can guide you to think in the direction of finding vulnerability.
 
 If you want to go to network pentesting, you should know TC/IP layer, OSI layer, how to setup network interface and basic knowledge of how internet and firewall works.
 

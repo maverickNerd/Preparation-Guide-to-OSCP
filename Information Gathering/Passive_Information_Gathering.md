@@ -69,6 +69,7 @@ Netcraft can be used to indirectly find out information about web servers on the
 Whois is a name for a TCP service, a tool, and a type of database. Whois databases contain name server, registrar, and, in some cases, full contact information about a domain name. Each registrar must maintain a Whois database containing all contact information for the domains they host.
 
 root@kali:/home/greysec/scripts# whois flipkart.com
+
    Domain Name: FLIPKART.COM
    Registry Domain ID: 1009529768_DOMAIN_COM-VRSN
    Registrar WHOIS Server: whois.godaddy.com

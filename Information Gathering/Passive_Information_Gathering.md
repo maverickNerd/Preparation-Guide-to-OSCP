@@ -64,9 +64,13 @@ root@kali:/home/greysec/scripts# theharvester -d cisco.com -b linkedin
 
 Netcraft can be used to indirectly find out information about web servers on the Internet, including the underlying operating system, web server version, and uptime.
 
+https://www.netcraft.com/
+
 ## Whois Enumeration
 
 Whois is a name for a TCP service, a tool, and a type of database. Whois databases contain name server, registrar, and, in some cases, full contact information about a domain name. Each registrar must maintain a Whois database containing all contact information for the domains they host.
+
+http://whois.domaintools.com/
 
 root@kali:/home/greysec/scripts# whois flipkart.com
 
@@ -80,3 +84,38 @@ root@kali:/home/greysec/scripts# whois flipkart.com
    Registrar: GoDaddy.com, LLC
 
 - You can see from the above output that flipkart domain is registered on godaddy.com and its creation and expiry date. Sometimes we can get the contact number and email id of internal organization also which can help in social engineering attack.
+
+## Recon-ng
+
+Recon-ng is a full-featured Web Reconnaissance framework written in Python. Complete with independent modules, database interaction, built in convenience functions, interactive help, and command completion, Recon-ng provides a powerful environment in which open source web-based reconnaissance can be conducted quickly and thoroughly.
+
+Recon-ng has a look and feel similar to the Metasploit Framework, reducing the learning curve for leveraging the framework.
+
+tutorial: https://www.youtube.com/watch?v=CM--WaOQEqo
+
+### Usage:
+
+root@kali:/home/greysec/scripts# recon-ng
+recon-ng][default] > use recon/domains-contacts/whois_pocs
+[recon-ng][default][whois_pocs] > set SOURCE microsoft.com
+SOURCE => microsoft.com
+[recon-ng][default][whois_pocs] > run
+
+-------------
+MICROSOFT.COM
+-------------
+[*] URL: http://whois.arin.net/rest/pocs;domain=microsoft.com
+
+[*] URL: http://whois.arin.net/rest/poc/AADLA11-ARIN
+
+[*] [contact] CHRIS AADLAND (v-chrisa@microsoft.com) - Whois contact
+
+[*] URL: http://whois.arin.net/rest/poc/AADLA-ARIN
+
+[*] [contact] CHRISTINA AADLAND (v-chrisa@microsoft.com) - Whois contact
+
+[*] URL: http://whois.arin.net/rest/poc/AADLA1-ARIN
+
+[*] [contact] CHRISTINA AADLAND (v-chrisa@microsoft.com) - Whois contact
+
+[*] URL: http://whois.arin.net/rest/poc/AADLA10-ARIN

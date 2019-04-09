@@ -151,6 +151,7 @@ TCP RST response	                                closed
 No response received or ICMP unreachable errors	  filtered
 
 -sU: UDP scan works by sending a UDP packet to every targeted port. For most ports, this packet will be empty (no payload), but for a few of the more common ports a protocol-specific payload will be sent. Based on the response, or lack thereof, the port is assigned to one of four states as detailed in the table below:
+
 Probe Response	                                                   Assigned State
 Any UDP response from target port	                                 open
 No response received after retransmission	                         open|filtered
@@ -199,9 +200,11 @@ There's a few options to output to but mainly these are xml,gnmap & nmap and hav
 
 -oX: This instructs nmap to give the output in XML format for parsing later.
 Basic example: nmap 10.0.0.1 -oX outFile
--oG: To do the same thing for a grepable file, -oG can be used. If I wanted to pull up the text from that file, I can use: grep HTTPS output.gnmap. This will search that file for the phrase HTTPS and output the result.
+-oG: To do the same thing for a grepable file, -oG can be used. If I wanted to pull up the text from that file, I can use: grep
+HTTPS output.gnmap. This will search that file for the phrase HTTPS and output the result.
 Basic example: nmap 10.0.0.1 -oG outFile
--oN: nmap output will be the same as what is shown in realtime when you're running a scan, it allows you to quickly identify open ports or the bigger picture about a target.
+-oN: nmap output will be the same as what is shown in realtime when you're running a scan, it allows you to quickly identify open
+ports or the bigger picture about a target.
 Basic example: nmap 10.0.0.1 -oN outFile
 -oS: This option serves no real value over the past three however will output the results in a leet speak format for a bit of fun.
 -oA: Lastly to output to all the formats previously mentioned ( .nmap, .gnmap, .xml ) just give it a name and you're away.
@@ -232,8 +235,7 @@ The different flags in this command do the following:
 --min-parallelism 64: Launch 64 parallel tasks to probe the target.
 --min-hostgroup 16: Scan a minimum of 16 hosts at one time and...
 --max-hostgroup 64: ... a maximum amount of 64 hosts.
---max-retries 3: The amount of times to retry probing a port before moving onto the next service.
--Pn: Skip ping scans, assume the host is up.
+--max-retries 3: The amount of times to retry probing a port before moving onto the next service.-Pn: Skip ping scans, assume the host is up.
 -n: Skip dns resolution, usually select this when not interested in reverse dns or wanting a quicker scan :-).
 -iL input_hosts.txt: Take an input file containing target hosts.
 -oA output: Output the results to .gnmap,.nmap & .xml for parsing later and analysing.
@@ -247,7 +249,7 @@ The addition of the --script=vuln and specifc port tells nmap to only probe the 
 One final one-liner I use a lot is to get the output of a subnet mask, something like:
 
 nmap -sL -n 10.10.10.1/24 | grep report | cut -d " " -f 5 >>  ips.txt
-This will simply print all of the hosts in the range given as individual IP addresses, very useful when you don't have a subnet calc on hand or want unique ips for other tools!
+This will simply print all of the hosts in the range given as individual IP addresses, very useful when you don't have a subnet calculation on hand or want unique ips for other tools!
 
 Nmap Reference Guide - https://nmap.org/book/man.html
 Nmap Cheatsheet: https://blogs.sans.org/pen-testing/files/2013/10/NmapCheatSheetv1.1.pdf
@@ -263,6 +265,6 @@ You can use NSE script with following options of nmap command:
 -sC
 Performs a script scan using the default set of scripts. It is equivalent to --script=default. Some of the scripts in this category are considered intrusive and should not be run against a target network without permission.
 
---script <filename>|<category>|<directory>|<expression>[,...]
+--script filename|category|directory|expression[,...]
 
-kali:~# nmap 10.0..0.12 --script smb-os-discovery.nse
+kali:~# nmap 10.0.0.12 --script smb-os-discovery.nse

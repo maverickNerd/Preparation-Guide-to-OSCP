@@ -143,54 +143,81 @@ Nmap is one of the most used tools when carrying out infrastructure-like engagem
 There are three fairly commmon flags used in nmap for types of scanning, these are TCP connect scans, SYN & UDP. The flags for are shown below and a brief explanation of how they work is included too:
 
 -sT: TCP connect scan is the default TCP scan type when SYN scan is not an option. This is selected when a user doesn't have elevate priveleges on a machine and therefore does not have permission to send raw packets or is scanning IPv6 networks. Instead of writing raw packets as most other scan types do, Nmap asks the underlying operating system to establish a connection with the target machine and port by issuing the connect system call and a TCP three way handshake. This is the same high-level system call that web browsers, and most other network-enabled applications use to establish a connection.
+
 -sS: This flag is a SYN scan and it is the default, most popular scan option when using nmap. It can be performed quickly, scanning thousands of ports per second on a fast network or modern network. SYN scaning is relatively unobtrusive and stealthy, since it does not complete the TCP handshake, rather it sends SYN and waits for a SYN-ACK response. Based on the response the port will then come back as either open, closed or filtered:
 
 ProbeResponse	                                    Assigned State
+
 TCP SYN/ACK response	                            open
+
 TCP RST response	                                closed
+
 No response received or ICMP unreachable errors	  filtered
 
 -sU: UDP scan works by sending a UDP packet to every targeted port. For most ports, this packet will be empty (no payload), but for a few of the more common ports a protocol-specific payload will be sent. Based on the response, or lack thereof, the port is assigned to one of four states as detailed in the table below:
 
 Probe Response	                                                   Assigned State
+
 Any UDP response from target port	                                 open
+
 No response received after retransmission	                         open|filtered
+
 ICMP port unreachable error (type 3, code 3)	                     closed
+
 Other ICMP unreachable errors (type 3, code 1, 2, 9, 10, or 13)	   filtered
 
 -sn - Ping scan, used for sweeping the network, it sends ICMP packets to know if the host is up or not.
+
 -sV: Version scan, this will probe specific services and try to identify what version of a particular application or service is running on that port.
+
 -O: OS Scan, this will send additional probes in order to determine what operating system the host is likely running.
 
 ### PROBING (-P<X>)
 There are so many different options when it comes to probing a service however here are some of the specifics when it comes to probing things.
 
 -Pn: Don't ping the host, assume it's up - this is useful for hosts that don't respond to or block ping requests.
+
 -PB: Default probing, scan port 80,443 and send an ICMP to the target.
+
 -PE: Use a default ICMP echo request to probe a target
+
 -PP: Use an ICMP timestamp request
+
 -PM: Use an ICMP network request
 
 ### DEFAULT TIMING OPTIONS (-TX)
 Sometimes when tuning a scan you might want to have certain options set to speed up or slow down scanning depending on if you want to be noisy or stealthy!
 
 -T5: Insane; Very aggressive timing options, gotta go fast! This will likely crash unstable networks so shy away from it, in some instances it will also miss open ports due to the level of aggression.
+
 -T4: Aggressive; Assumes a stable network, may overwhelm some networks if not setup to cope.
+
 -T3: Normal; A dynamic timing mode which is based on how responsive the target is.
+
 -T2: Polite; Slows down to consume less bandwidth, runs roughly ten times slower than a normal scan.
+
 -T1: Sneaky; Quite slow, used to evade IDS and stay quiet on a network
+
 -T0: Paranoid; Very slow, used to evade IDS and stay almost silent on a network.
 
 In addition to these options you can fine tune a scan even more with the particular settings most people use these options to speed nmap up, but they can also be useful for slowing Nmap down. Often people will do that to evade IDS systems, reduce network load, or even improve accuracy if network conditions are so bad that even nmap's conservative default is too aggressive., these flags are detailed in the following table:
 
 Function	                                             Flags
+
 Size of the group of hosts to be scanned concurrently	--min-hostgroup, --max-hostgroup
+
 Number of scanning probes to be launched in parallel	--min-parallelism, --max-parallelism
+
 Timeout values for probes	                            --min-rtt-timeout, --max-rtt-timeout, --initial-rtt-timeout
+
 Maximum number of probe retransmissions allowed	      --max-retries
+
 Maximum time before giving up on an entire host	      --host-timeout
+
 Control the delay inserted between each probe against an individual host	--scan-delay, --max-scan-delay
+
 Rate of probe packets sent per second	                --min-rate, --max-rate
+
 Defeat RST packet response rate by target hosts	      --defeat-rst-ratelimit
 
 ### OUTPUTS
@@ -199,15 +226,23 @@ Viewing the output in realtime can be useful however parsing the information aft
 There's a few options to output to but mainly these are xml,gnmap & nmap and have the flags; -oX, -oG, -oN but there is also an easter egg output in 1337 speak which is -oS.
 
 -oX: This instructs nmap to give the output in XML format for parsing later.
+
 Basic example: nmap 10.0.0.1 -oX outFile
+
 -oG: To do the same thing for a grepable file, -oG can be used. If I wanted to pull up the text from that file, I can use: grep
 HTTPS output.gnmap. This will search that file for the phrase HTTPS and output the result.
+
 Basic example: nmap 10.0.0.1 -oG outFile
+
 -oN: nmap output will be the same as what is shown in realtime when you're running a scan, it allows you to quickly identify open
 ports or the bigger picture about a target.
+
 Basic example: nmap 10.0.0.1 -oN outFile
+
 -oS: This option serves no real value over the past three however will output the results in a leet speak format for a bit of fun.
+
 -oA: Lastly to output to all the formats previously mentioned ( .nmap, .gnmap, .xml ) just give it a name and you're away.
+
 Basic example: nmap 10.0.0.1 -oA outFile
 
 Another useful output type is to view stats on the running scan. An example would be: nmap –stats-every 25s 10.0.0.1 to show me the statistical information every 25 seconds during a scan. You can use s for seconds, m for minutes, or h for hours for this scan. This can be done to reduce the amount of info filling up a screen.
@@ -220,35 +255,56 @@ nmap -sT <host> --top-ports 1000 -oA TCP-Top1000
 This command essentially does the following:
 
 nmap : This is the name of the tool in use, nmap
+
 -sT : This flag tells nmap to do a full TCP Connect scan against the target.
+
 <host> : This is where the host goes either domain(google.com) or IP address(84.92.52.67)
+
 --top-ports 1000 : This tells nmap to scan the top 1000 ports
+
 -oA : Output the results to .gnmap,.nmap & .xml
+
 TCP-Top1000 : Name of output file
 
 #### SOME OPTIONS I USE
+
 nmap -sSV -p- --min-parallelism 64 --min-hostgroup 16 --max-hostgroup 64 --max-retries 3 -Pn -n -iL input_hosts.txt -oA output --verson-all  --reason
+
 The different flags in this command do the following:
 
 -sSV: This conducts a syn scan with version checks included.
+
 -p-: Tells nmap to scan all 65535 ports (1 - 65535), if you want to include port 0 you'll need to do -p 0-65535.
+
 --min-parallelism 64: Launch 64 parallel tasks to probe the target.
+
 --min-hostgroup 16: Scan a minimum of 16 hosts at one time and...
+
 --max-hostgroup 64: ... a maximum amount of 64 hosts.
---max-retries 3: The amount of times to retry probing a port before moving onto the next service.-Pn: Skip ping scans, assume the host is up.
+
+--max-retries 3: The amount of times to retry probing a port before moving onto the next service.-Pn: Skip ping scans, assume the
+host is up.
+
 -n: Skip dns resolution, usually select this when not interested in reverse dns or wanting a quicker scan :-).
+
 -iL input_hosts.txt: Take an input file containing target hosts.
+
 -oA output: Output the results to .gnmap,.nmap & .xml for parsing later and analysing.
+
 --verson-all: Do extended version checks against the host to find out services running.
+
 --reason: Detail the reason why a port is determined as open, filtered or closed.
+
 Probing a specific service for more information and looking for known issues:
 
 sudo nmap -sSV --version-all -p 11211 --min-parallelism 64 --script=vuln 10.0.0.1 -Pn -n
+
 The addition of the --script=vuln and specifc port tells nmap to only probe the port 11211 and tell me any vulnerable services it knows about running on that port. Additionally -sC can be used to scan a target and probe with common scripts. More information on the scripting engine can be found below.
 
 One final one-liner I use a lot is to get the output of a subnet mask, something like:
 
 nmap -sL -n 10.10.10.1/24 | grep report | cut -d " " -f 5 >>  ips.txt
+
 This will simply print all of the hosts in the range given as individual IP addresses, very useful when you don't have a subnet calculation on hand or want unique ips for other tools!
 
 Nmap Reference Guide - https://nmap.org/book/man.html

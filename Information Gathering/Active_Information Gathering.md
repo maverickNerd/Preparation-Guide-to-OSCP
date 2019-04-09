@@ -324,3 +324,124 @@ Performs a script scan using the default set of scripts. It is equivalent to --s
 --script filename|category|directory|expression[,...]
 
 kali:~# nmap 10.0.0.12 --script smb-os-discovery.nse
+
+
+## FTP Enumeration (port 21)
+
+- Fingerprint server
+telnet ip_address 21 (Banner grab)
+
+- Run command-
+ftp ip_address
+
+- Check for anonymous access
+ftp ip_address
+Username: anonymous OR anonPassword: any@email.com
+
+- Password guessing
+- Cracking Password
+Hydra brute force
+hydra -l USERNAME -P /usr/share/wordlist -f 192.168.X.XXX ftp -V
+
+
+## SSH Enumeration (port 22)
+
+- Fingerprint server
+telnet ip_address 22 (banner grab)
+
+- Password guessing
+ssh root@ip_address
+
+- Password Cracking
+Hydra brute force
+
+- Examine configuration files
+ssh_config
+sshd_config
+authorized_keys
+ssh_known_hosts
+
+## Telnet port 23 open
+- Fingerprint server
+telnet ip_address
+
+- Password Attack
+Common passwords
+Hydra brute force
+
+## Sendmail Enumeration (Port 25)
+
+- Fingerprint server
+telnet ip_address 25 (banner grab)
+
+#### Mail Server Testing
+- Enumerate users
+VRFY username (verifies if username exists - enumeration of accounts)
+EXPN username (verifies if username is valid - enumeration of accounts)
+
+- Mail Spoof Test
+HELO anything MAIL FROM: some_address RCPT TO:some_address DATA . QUIT
+
+
+## NetBIOS/SMB Enumeration (Ports 135-139,445)
+Windows XP and Windows 2000 was effected by NULL session authentication issue, which can be exploited to get users info, password policies, group info and domain info.
+
+- NetBIOS enumeration
+nbtscan -r 10.1.1.0/24
+enum <-u username> <-p password> <-f dictfile> <hostname|ip>
+
+- Null Session (Windows)
+net use \\192.168.1.1\ipc$ "" /u:""
+net view \\ip_address
+
+- Smbclient (Linux)
+smbclient -L //server/share password options
+
+nmblookup -A target
+
+smbclient //MOUNT/share -I target -N
+
+rpcclient -U "" target
+
+enum4linux -a target
+
+- Find Open SMB shares
+
+Use NSE script:
+nmap -T4 -v -oA shares --script smb-enum-shares --script-args smbuser=username,smbpass=password -p445 10.1.1.0/24
+
+Find OS version:
+nmap -v -p 139, 445 --script=smb-os-discovery 10.1.1.22
+
+
+- Find SMB Users:
+
+nmap -sU -sS --script=smb-enum-users -p U:137,T:139 10.1.1.200-254
+
+Find vulnerability in SMB:
+
+nmap -v -p 139,445 --script=smb-vuln* --script-args=unsafe=1 10.1.1.22
+
+## SNMP Enumerate (port 161)
+
+- Default Community Strings
+public
+private
+
+- snmpwalk
+snmpwalk -v <Version> -c <Community string> <IP>
+
+eg: snmpwalk -c public -v1 192.168.1.X 1
+
+snmpcheck -t 192.168.1.X -c public
+
+- SNMP Bruteforce
+onesixtyone
+onesixytone -c SNMP.wordlist <IP>
+
+hydra -P /usr/share/wordlist 192.168.XX.XX smtp -V
+
+
+Cheatsheet:
+http://0daysecurity.com/penetration-testing/enumeration.html
+https://highon.coffee/blog/penetration-testing-tools-cheat-sheet/
